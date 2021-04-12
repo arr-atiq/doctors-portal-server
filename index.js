@@ -22,11 +22,11 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
 client.connect(err => {
   const appointmentCollection = client.db("doctorsPortal").collection("appointments");
   
-  app.post("/addAppointment", (req, res) => {
+  app.post('/addAppointment', (req, res) => {
       const appointment = req.body;
       appointmentCollection.insertOne(appointment)
       .then(result => {
-          res.send(result.insertedCount);
+          console.log(result);
       })
   })
 
